@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyCast | Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">☀</span><span>skycast<span class="brand-dot">.</span></span></a>
+      <div class="live-label"><span class="live-dot"></span> LIVE WEATHER</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">YOUR PERSONAL WEATHER STATION</p>
+        <h1>Weather, at a glance.</h1>
+        <p class="subtitle">Find the forecast. Plan your day.</p>
+        <form id="search-form" class="search-form">
+          <span class="search-icon">⌕</span>
+          <input id="city-input" type="text" placeholder="Search a city (e.g. Dhaka)" autocomplete="off" aria-label="City name">
+          <button type="submit" id="search-button">Search <span>→</span></button>
+        </form>
+        <p class="search-hint">Try a city anywhere in the world</p>
+      </section>
+
+      <section id="status" class="status" role="status" aria-live="polite">Enter a city to see its current weather.</section>
+
+      <section id="weather-section" class="weather-section hidden">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">CURRENT CONDITIONS</p>
+            <h2 id="location-name">—</h2>
+            <p id="local-time" class="muted">—</p>
+          </div>
+          <button id="favorite-button" class="favorite-button" type="button" aria-label="Save city to favorites">☆ <span>Save city</span></button>
+        </div>
+
+        <div class="weather-card">
+          <div class="current-main">
+            <div>
+              <p class="muted">CURRENT TEMPERATURE</p>
+              <div class="temperature"><span id="temperature">--</span><span class="degree">°C</span></div>
+              <h3 id="weather-description">—</h3>
+              <p class="feels">Feels like <strong id="feels-like">--°</strong></p>
+            </div>
+            <div class="weather-symbol" id="weather-symbol">☀️</div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><span class="metric-icon">💧</span><div><small>Humidity</small><strong id="humidity">--%</strong></div></div>
+            <div class="metric"><span class="metric-icon">💨</span><div><small>Wind speed</small><strong id="wind">-- km/h</strong></div></div>
+            <div class="metric"><span class="metric-icon">🌡️</span><div><small>Feels like</small><strong id="metric-feels">--°C</strong></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="favorites-section">
+        <div class="section-heading compact">
+          <div><p class="eyebrow">QUICK ACCESS</p><h2>Saved cities</h2></div>
+          <span class="muted" id="favorite-count">0 saved</span>
+        </div>
+        <div id="favorites-list" class="favorites-list">
+          <p class="empty-favorites">Your saved cities will appear here.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>SKYCAST</span><span>Powered by Open-Meteo · Built with HTML, CSS & JavaScript</span></footer>
+  </div>
+</body>
+</html>
